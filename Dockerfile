@@ -19,3 +19,6 @@ RUN set -o xtrace -o errexit -o nounset && \
     mkdir --parents /opt/pipx && \
     curl --silent --location --output /opt/pipx/pipx.pyz ${PIPX_PYZ_URL} && \
     python3.12 /opt/pipx/pipx.pyz install --include-deps ansible${ANSIBLE_RELEASE:+"==${ANSIBLE_RELEASE}"}
+
+COPY --chmod=0775 entrypoint.sh /
+ENTRYPOINT [ "/entrypoint.sh" ]

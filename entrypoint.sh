@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-command=ansible
+command="ansible"
 
 if [[ $# > 0 ]]; then
     case "$1" in
@@ -15,7 +15,7 @@ if [[ $# > 0 ]]; then
 fi
 
 if [[ $# > 0 ]]; then
-    echo "$command $@"
+    exec $command $@
 else
-    $command --help
+    exec $command --help
 fi
